@@ -1,0 +1,61 @@
+/* Selector universal: aplica a *todos* los elementos */
+* {
+    margin: 0;                 /* Elimina los márgenes por defecto */
+    box-sizing: border-box;    /* Incluye el padding y el borde dentro del ancho/alto total */
+}
+
+/* Estilos generales del cuerpo de la página */
+body{
+    font-family: Arial, Helvetica, sans-serif;  /* Fuente principal del documento */
+    line-height: 1.6;                           /* Altura de línea para mejorar la lectura */
+    background-color: azure;                    /* Color suave de fondo */
+    color: #333;                                /* Color principal del texto */
+    padding: 20px;                              /* Separación interna alrededor del contenido */
+}
+
+/* Estilo del encabezado principal */
+header {
+    text-align: center;         /* Centra el texto dentro del header */
+    background-color: #ffffff;  /* Fondo blanco */
+    border-radius: 10px;        /* Bordes redondeados */
+    border: 2px solid #333;     /* Borde oscuro de 2px */
+}
+
+/* Clase general para botones */
+.btn {
+    padding: 20px 25px;   /* Tamaño del botón (vertical y horizontal) */
+    margin-top: 20px;     /* Separación superior respecto a otros elementos */
+    border-radius: 5px;   /* Esquinas levemente redondeadas */
+    cursor: pointer;      /* Cambia el cursor a mano al pasar por encima */
+}
+
+/* FORMULARIO */
+
+/* Contenedor principal del formulario */
+.contacto {
+    padding: 20px;          /* Espaciado interno */
+    background: #ffffff;    /* Fondo blanco */
+    border-radius: 10px;    /* Bordes redondeados */
+}
+
+/* Margen inferior entre los distintos campos del formulario */
+.form .campo {
+    margin-bottom: 15px;
+}
+
+/* Botón para enviar */
+.btn-enviar {
+    background-color: cadetblue; /* Color de fondo */
+    color: white;                /* Texto en blanco */
+}
+
+/* Botón para borrar o resetear */
+.btn-borrar {
+    background-color: red; /* Fondo rojo */
+    color: #ffffff;        /* Texto blanco */
+}
+
+/* Efecto hover para el botón de enviar */
+.btn-enviar:hover {
+    background-color: yellow; /* Cambia a amarillo al pasar el ratón */
+}
