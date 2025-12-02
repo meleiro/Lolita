@@ -1,61 +1,480 @@
-/* Selector universal: aplica a *todos* los elementos */
+/* 
+   SELECTOR UNIVERSAL
+   -------------------
+   El selector * aplica estas reglas a TODOS los elementos HTML de la página.
+   Es útil para "resetear" ciertos estilos por defecto que añaden los navegadores
+   (como márgenes) y tener un punto de partida uniforme para el diseño.
+*/
 * {
-    margin: 0;                 /* Elimina los márgenes por defecto */
-    box-sizing: border-box;    /* Incluye el padding y el borde dentro del ancho/alto total */
+    /* 
+       margin: 0
+       ----------
+       Por defecto, muchos elementos (p.ej. body, h1, p) vienen con un margen
+       predefinido del navegador. Al ponerlo a 0 evitamos espacios "misteriosos"
+       y controlamos totalmente el espaciado usando margin/padding nosotros mismos.
+    */
+    margin: 0;                 
+
+    /* 
+       box-sizing: border-box
+       -----------------------
+       Cambia el modelo de caja de CSS.
+       - Por defecto (content-box), el width/height sólo incluye el contenido,
+         y luego se suma padding y border, lo que hace más difícil calcular
+         tamaños exactos.
+       - Con border-box, el width/height incluye contenido + padding + borde.
+         Esto hace que si decimos width: 300px, la caja completa mida 300px
+         aunque tenga padding y borde. Mucho más cómodo para maquetar.
+    */
+    box-sizing: border-box;    
 }
 
-/* Estilos generales del cuerpo de la página */
+/* 
+   BODY (CUERPO DEL DOCUMENTO)
+   ---------------------------
+   Estilos generales de la página. Lo que pongamos aquí se hereda en muchos casos
+   por el resto de elementos (como la fuente y el color del texto).
+*/
 body{
-    font-family: Arial, Helvetica, sans-serif;  /* Fuente principal del documento */
-    line-height: 1.6;                           /* Altura de línea para mejorar la lectura */
-    background-color: azure;                    /* Color suave de fondo */
-    color: #333;                                /* Color principal del texto */
-    padding: 20px;                              /* Separación interna alrededor del contenido */
+    /* 
+       font-family
+       -----------
+       Define la fuente base del documento.
+       Se indica una lista de fuentes en orden de prioridad:
+       - Primero intenta "Arial".
+       - Si no está disponible, "Helvetica".
+       - Si tampoco, usa alguna fuente genérica sans-serif del sistema.
+    */
+    font-family: Arial, Helvetica, sans-serif;  
+
+    /*
+       line-height: 1.6
+       ----------------
+       Altura de línea relativa al tamaño de la fuente.
+       Un valor de 1.6 mejora la legibilidad, dejando espacio vertical entre líneas.
+    */
+    line-height: 1.6;                           
+
+    /*
+       background-color: azure
+       ------------------------
+       Color de fondo de toda la página.
+       "azure" es un color suave, cercano al blanco con un tono azulado.
+    */
+    background-color: azure;                    
+
+    /*
+       color: #333
+       -----------
+       Color del texto principal.
+       En lugar de un negro puro (#000), se usa #333 (gris muy oscuro),
+       que suele cansar menos la vista.
+    */
+    color: #333;                                
+
+    /*
+       padding: 20px
+       -------------
+       Espaciado interior del body.
+       Hace que el contenido no esté pegado a los bordes de la ventana,
+       dejando un margen visual agradable.
+    */
+    padding: 20px;                              
 }
 
-/* Estilo del encabezado principal */
+/* 
+   HEADER (ENCABEZADO PRINCIPAL)
+   -----------------------------
+   Suele contener el título o la cabecera de la página.
+*/
 header {
-    text-align: center;         /* Centra el texto dentro del header */
-    background-color: #ffffff;  /* Fondo blanco */
-    border-radius: 10px;        /* Bordes redondeados */
-    border: 2px solid #333;     /* Borde oscuro de 2px */
+    /*
+       text-align: center
+       -------------------
+       Alinea el texto al centro horizontalmente dentro del header.
+    */
+    text-align: center;         
+
+    /*
+       background-color: #ffffff
+       -------------------------
+       Fondo blanco para que el encabezado destaque sobre el color azure del body.
+    */
+    background-color: #ffffff;  
+
+    /*
+       border-radius: 10px
+       -------------------
+       Bordes redondeados en el contenedor header.
+       Cuanto mayor el valor, más redondo es el borde.
+    */
+    border-radius: 10px;        
+
+    /*
+       border: 2px solid #333
+       -----------------------
+       Borde de 2 píxeles, línea continua, color gris oscuro.
+       Enmarca visualmente el header, dándole aspecto de tarjeta.
+    */
+    border: 2px solid #333;     
 }
 
-/* Clase general para botones */
+/*
+   CLASE GENERAL PARA BOTONES .btn
+   -------------------------------
+   Se aplica a any elemento con class="btn"
+   (por ejemplo: <button class="btn btn-enviar">Enviar</button>)
+   Esta clase da el "aspecto básico" del botón (tamaño, bordes, transición, etc.).
+*/
 .btn {
-    padding: 20px 25px;   /* Tamaño del botón (vertical y horizontal) */
-    margin-top: 20px;     /* Separación superior respecto a otros elementos */
-    border-radius: 5px;   /* Esquinas levemente redondeadas */
-    cursor: pointer;      /* Cambia el cursor a mano al pasar por encima */
+    /*
+       padding: 40px 25px
+       -------------------
+       Espaciado interno (relleno) del botón:
+       - 40px vertical (arriba y abajo).
+       - 25px horizontal (izquierda y derecha).
+       Hace que el botón sea grande y fácil de pulsar.
+    */
+    padding: 40px 25px;   
+
+    /*
+       margin-top: 20px
+       -----------------
+       Espacio encima del botón, para que no quede pegado al elemento anterior.
+    */
+    margin-top: 20px;     
+
+    /*
+       border-radius: 5px
+       -------------------
+       Esquinas ligeramente redondeadas para un aspecto más moderno y suave.
+    */
+    border-radius: 5px;   
+
+    /*
+       cursor: pointer
+       ----------------
+       Cambia el cursor a mano cuando pasar por encima del botón,
+       indicando que es un elemento clicable.
+    */
+    cursor: pointer;      
+
+    /*
+       transition
+       ----------
+       Define animaciones suaves cuando cambian las propiedades indicadas.
+       Aquí se anima:
+         - background-color (duración: 1s, timing: ease),
+         - transform (duración: 0.3s, timing: ease).
+       Esto hace que, por ejemplo, al hacer hover la transición de color y el
+       "zoom" no sea brusca, sino gradual.
+    */
+    transition: background-color 1s ease, transform 0.3s ease;
+
+    /*
+       margin-bottom y margin-right
+       -----------------------------
+       margin-bottom: 20px -> Deja espacio debajo del botón.
+       margin-right: 20px  -> Deja espacio a la derecha (útil si hay varios botones en línea).
+    */
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 
-/* FORMULARIO */
+/* 
+   FORMULARIO
+   ==========
+   Estilos para el contenedor del formulario y sus elementos.
+*/
 
-/* Contenedor principal del formulario */
+/*
+   .contacto
+   ---------
+   Contenedor principal del formulario, por ejemplo:
+   <div class="contacto"> ... </div>
+*/
 .contacto {
-    padding: 20px;          /* Espaciado interno */
-    background: #ffffff;    /* Fondo blanco */
-    border-radius: 10px;    /* Bordes redondeados */
+    /*
+       padding: 20px
+       -------------
+       Espaciado interno para que los campos del formulario
+       no toquen directamente el borde del contenedor.
+    */
+    padding: 20px;          
+
+    /*
+       background: #ffffff
+       -------------------
+       Fondo blanco, creando contraste con el fondo azure del body.
+       Esto hace que el formulario parezca una "tarjeta" sobre el fondo.
+    */
+    background: #ffffff;    
+
+    /*
+       border-radius: 10px
+       -------------------
+       Bordes redondeados en el contenedor del formulario.
+       Visualmente uniforme con el header (que también tiene 10px).
+    */
+    border-radius: 10px;    
 }
 
-/* Margen inferior entre los distintos campos del formulario */
+/*
+   .contacto .trozo
+   ----------------
+   Selecciona elementos con class="trozo" que estén dentro
+   de un elemento con class="contacto".
+   Se suele usar para resaltar un trozo de texto dentro del formulario.
+*/
+.contacto .trozo {
+    /*
+       color: blue
+       -----------
+       Texto en azul para resaltar.
+    */
+    color:blue;
+
+    /*
+       font-weight: bold
+       ------------------
+       Texto en negrita para dar más énfasis.
+    */
+    font-weight: bold;    
+}
+
+/*
+   .form .campo
+   ------------
+   Cada "campo" del formulario, normalmente un contenedor
+   que agrupa label + input/textarea.
+*/
 .form .campo {
+    /*
+       margin-bottom: 15px
+       --------------------
+       Deja espacio vertical entre un campo y el siguiente,
+       evitando que queden pegados.
+    */
     margin-bottom: 15px;
 }
 
-/* Botón para enviar */
+/*
+   .form span
+   ----------
+   Suele actuar como etiqueta (label) de cada campo, por ejemplo:
+   <span>Nombre:</span>
+*/
+.form span {
+   /*
+      display: block
+      --------------
+      Hace que el span se comporte como un bloque (ocupa toda la línea),
+      de modo que el input quede debajo.
+   */
+   display: block;
+
+   /*
+      font-weight: bold
+      ------------------
+      Texto de la etiqueta en negrita.
+   */
+   font-weight: bold;
+
+   /*
+      margin-bottom: 5px
+      -------------------
+      Deja un pequeño espacio entre la etiqueta y el input/textarea.
+   */
+   margin-bottom: 5px;
+}
+
+/*
+   .form input, .form textarea
+   ---------------------------
+   Aplica los mismos estilos a todos los <input> y <textarea>
+   dentro de un contenedor con class="form".
+*/
+.form input, 
+.form textarea {
+  /*
+     width: 100%
+     -----------
+     Ocupan todo el ancho disponible del contenedor padre.
+     Con box-sizing: border-box, el padding y borde ya están incluidos
+     en ese 100%, así que se ajustan perfectamente.
+  */
+  width: 100%;
+
+  /*
+     padding: 10px
+     -------------
+     Espaciado interno para que el texto no quede pegado al borde.
+  */
+  padding: 10px;
+
+  /*
+     border-radius: 5px
+     -------------------
+     Bordes levemente redondeados para inputs y textareas.
+  */
+  border-radius: 5px;
+
+  /*
+     border: 1px solid rgb(10, 113, 136)
+     ------------------------------------
+     Borde fino de 1px con un color azul verdoso.
+     Le da un toque de identidad al formulario.
+  */
+  border: 1px solid rgb(10, 113, 136);
+
+  /*
+     font-size: 1.2rem
+     ------------------
+     Tamaño de la fuente algo mayor que el estándar (1rem),
+     facilitando la lectura del texto que se introduce.
+  */
+  font-size: 1.2rem;
+
+  /*
+     transition
+     ----------
+     Transición suave para:
+       - border-color
+       - box-shadow
+     Esto hace que al pasar el ratón o enfocar el campo, los cambios visuales
+     no sean bruscos, sino animados en 0.3 segundos.
+  */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/*
+   EFECTOS HOVER EN CAMPOS (INPUT/TEXTAREA)
+   ----------------------------------------
+   Se aplican cuando el ratón pasa por encima del campo.
+*/
+.form input:hover,
+.form textarea:hover {    
+    /*
+       border: 3px solid red
+       ----------------------
+       Al pasar el ratón, el borde se vuelve rojo y más grueso.
+       Atrae la atención sobre el campo que está bajo el cursor.
+    */
+    border: 3px solid red;
+}
+
+/*
+   EFECTOS FOCUS EN CAMPOS (INPUT/TEXTAREA)
+   ----------------------------------------
+   Se aplican cuando el campo está enfocado (el usuario puede escribir en él).
+*/
+.form input:focus,
+.form textarea:focus {    
+    /*
+       border-color: red
+       ------------------
+       Al enfocar el campo, el borde se vuelve rojo, destacándolo.
+       (Si ya tenía 3px del :hover, al seguir enfocado puede mantener el color).
+    */
+    border-color:  red;
+
+    /*
+       outline: none
+       -------------
+       Elimina el contorno por defecto que algunos navegadores
+       añaden al enfocar un campo.
+       OJO: Para accesibilidad, conviene que siempre haya algún tipo de indicador
+       visual (en este caso se compensa con el box-shadow).
+    */
+    outline: none;
+
+    /*
+       box-shadow: -2px -2px 5px orange
+       ---------------------------------
+       Sombra alrededor del campo. Los valores indican:
+         - desplazamiento horizontal: -2px (ligeramente hacia la izquierda),
+         - desplazamiento vertical:   -2px (ligeramente hacia arriba),
+         - desenfoque:                5px,
+         - color:                     naranja.
+       Da un efecto de "resaltado" cuando el campo está activo.
+    */
+    box-shadow: -2px -2px 5px orange;
+}
+
+/*
+   BOTÓN ENVIAR
+   ------------
+   Se suele combinar con .btn, por ejemplo:
+   <button class="btn btn-enviar">Enviar</button>
+*/
 .btn-enviar {
-    background-color: cadetblue; /* Color de fondo */
-    color: white;                /* Texto en blanco */
+    /*
+       background-color: cadetblue
+       ----------------------------
+       Color de fondo azul verdoso.
+    */
+    background-color: cadetblue; 
+
+    /*
+       color: white
+       ------------
+       Texto en blanco, buen contraste sobre el fondo cadetblue.
+    */
+    color: white;                
 }
 
-/* Botón para borrar o resetear */
+/*
+   BOTÓN BORRAR / RESET
+   --------------------
+   También suele combinarse con .btn:
+   <button class="btn btn-borrar">Borrar</button>
+*/
 .btn-borrar {
-    background-color: red; /* Fondo rojo */
-    color: #ffffff;        /* Texto blanco */
+    /*
+       background-color: red
+       ----------------------
+       Fondo rojo, típico para acciones de borrado o reset,
+       asociadas visualmente a "peligro" o "eliminar".
+    */
+    background-color: red; 
+
+    /*
+       color: #ffffff
+       --------------
+       Texto blanco para que destaque sobre el fondo rojo.
+    */
+    color: #ffffff;        
 }
 
-/* Efecto hover para el botón de enviar */
+/*
+   EFECTO HOVER PARA EL BOTÓN ENVIAR
+   ---------------------------------
+   Se activa cuando el usuario pasa el puntero por encima.
+*/
 .btn-enviar:hover {
-    background-color: yellow; /* Cambia a amarillo al pasar el ratón */
+    /*
+       background-color: grey
+       -----------------------
+       Cambia el color de fondo a gris cuando el ratón está encima.
+    */
+    background-color: grey; 
+
+    /*
+       transform: scale(1.05)
+       -----------------------
+       Aumenta el tamaño del botón al 105% (ligero "zoom").
+       Gracias a la propiedad transition definida en .btn,
+       esta transformación se hace de manera suave.
+    */
+    transform: scale(1.05);
+}
+
+/*
+   EFECTO HOVER PARA EL BOTÓN BORRAR
+   ---------------------------------
+   Igual que el botón enviar, pero aplicado a .btn-borrar.
+*/
+.btn-borrar:hover {
+    background-color: grey;  /* Cambia el fondo a gris al pasar el ratón */
+    transform: scale(1.05);  /* Efecto de "zoom" suave */
 }
